@@ -1,0 +1,33 @@
+html,
+body {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+#ui {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  gap: 0px 24px;
+}
+.btn {
+  border: 0;
+  border-radius: 10px;
+  background: rgba(240, 240, 240, 0.25);
+  color: rgba(15, 15, 15, 0.75);
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+	-webkit-user-select: none;
+  transition: all 0.2s ease-out;
+}
+.btn:hover {
+  background: rgba(240, 240, 240, 0.75);
+}

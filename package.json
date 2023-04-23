@@ -1,0 +1,17 @@
+{
+  "name": "vite-ts-web-sketches",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@types/three": "^0.150.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0"
+  }
+}
