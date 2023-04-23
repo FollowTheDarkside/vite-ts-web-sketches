@@ -59,8 +59,8 @@ class App {
         });
         this.renderer.domElement.addEventListener("touchmove", event => {
             event.preventDefault();
-            this.mousePosition.setX(event.clientX);
-            this.mousePosition.setY(this.height - event.clientY);
+            this.mousePosition.setX(e.touches[0].pageX);
+            this.mousePosition.setY(this.height - e.touches[0].pageY);
         });
 
         // Add liquify reset button event
