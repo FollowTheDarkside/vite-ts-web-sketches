@@ -197,8 +197,9 @@ class App {
     
         const option = {
             video: {
-                width: this.webCam.width,
-                height: this.webCam.height,
+                width: { min:0, max:this.webCam.width },
+                height: { min:0, max:this.webCam.height },
+                aspectRatio: this.webCam.width/this.webCam.height,
                 facingMode: facingMode,
             },
             audio: false,
