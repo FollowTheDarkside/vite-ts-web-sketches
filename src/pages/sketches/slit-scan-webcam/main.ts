@@ -121,7 +121,8 @@ class App {
         }
         this.webCam.id = 'webcam';
         this.webCam.autoplay = true;
-        
+        this.webCam.muted = true;
+        this.webCam.playsInline = true;
 
         let facingMode = (isFront) ? "user" : { exact: "environment" };
     
