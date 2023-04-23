@@ -71,10 +71,6 @@ class App {
             event.preventDefault();
             this.mousePosition.setX(e.touches[0].pageX);
             this.mousePosition.setY(this.height - e.touches[0].pageY);
-
-            // for debug
-            let captureBtn = document.getElementById('capture-btn');
-            captureBtn.textContent = String(e.touches[0].pageX)+", "+String(this.height - e.touches[0].pageY);
         });
 
         // Add liquify reset button event
