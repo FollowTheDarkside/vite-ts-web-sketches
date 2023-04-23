@@ -36,22 +36,32 @@ class App {
         document.body.appendChild(this.renderer.domElement);
 
         // Add mouse eevent
-        this.renderer.domElement.addEventListener('mousedown', () => {
-            this.mousePosition.setZ(1);
-            //this.counter = 0;
+        this.renderer.domElement.addEventListener('mousedown', event => {
+            if (event.buttons === 1) { // left mouse button
+                this.mousePosition.setZ(1);
+                //this.counter = 0;
+                this.mousePosition.setX(event.clientX);
+                this.mousePosition.setY(this.height - event.clientY);
+            }
         });
-        this.renderer.domElement.addEventListener('mouseup', () => {
-            this.mousePosition.setZ(0);
+        this.renderer.domElement.addEventListener('mouseup', event => {
+            if (event.buttons === 0) { // no mouse button
+                this.mousePosition.setZ(0);
+            }
         });
         this.renderer.domElement.addEventListener('mousemove', event => {
-            this.mousePosition.setX(event.clientX);
-            this.mousePosition.setY(this.height - event.clientY);
+            if (event.buttons === 1) {
+                this.mousePosition.setX(event.clientX);
+                this.mousePosition.setY(this.height - event.clientY);
+            }
         });
 
         // Add touch event
         this.renderer.domElement.addEventListener("touchstart", event => {
             event.preventDefault();
             this.mousePosition.setZ(1);
+            this.mousePosition.setX(e.touches[0].pageX);
+            this.mousePosition.setY(this.height - e.touches[0].pageY);
         });
         this.renderer.domElement.addEventListener("touchend", event => {
             event.preventDefault();
