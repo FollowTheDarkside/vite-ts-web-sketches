@@ -60,8 +60,8 @@ class App {
         this.renderer.domElement.addEventListener("touchstart", event => {
             event.preventDefault();
             this.mousePosition.setZ(1);
-            this.mousePosition.setX(e.touches[0].pageX);
-            this.mousePosition.setY(this.height - e.touches[0].pageY);
+            this.mousePosition.setX(event.touches[0].pageX);
+            this.mousePosition.setY(this.height - event.touches[0].pageY);
         });
         this.renderer.domElement.addEventListener("touchend", event => {
             event.preventDefault();
@@ -69,8 +69,8 @@ class App {
         });
         this.renderer.domElement.addEventListener("touchmove", event => {
             event.preventDefault();
-            this.mousePosition.setX(e.touches[0].pageX);
-            this.mousePosition.setY(this.height - e.touches[0].pageY);
+            this.mousePosition.setX(event.touches[0].pageX);
+            this.mousePosition.setY(this.height - event.touches[0].pageY);
         });
 
         // Add liquify reset button event
