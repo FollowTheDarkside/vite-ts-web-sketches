@@ -25,6 +25,7 @@ class App {
         this.resolution = new THREE.Vector3(this.width, this.height, window.devicePixelRatio);
 
         this.renderer = new THREE.WebGLRenderer({
+            antialias: true,
             preserveDrawingBuffer: true // needed for html2canvas
         });
         this.loader = new THREE.TextureLoader();
