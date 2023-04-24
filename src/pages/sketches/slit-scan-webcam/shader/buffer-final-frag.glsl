@@ -5,6 +5,7 @@ uniform sampler2D iChannel0;
 uniform vec2 iResolution;
 uniform float size;
 uniform bool isCamFront;
+uniform bool isHorizontalDir;
 varying vec2 vUv;
 
 vec3 getFrame(vec2 uv, float hd_frame, float n){
@@ -41,7 +42,9 @@ void main()
     
     // Change the gradient to change the type of scan
     float grad = uv.y;
-    
+    if(isHorizontalDir){
+        grad = uv.x;
+    }
 
     gl_FragColor = vec4( getFrame(uv, grad, n), 1.0);
 }

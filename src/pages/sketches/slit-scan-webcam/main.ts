@@ -23,6 +23,7 @@ class App {
         this.aspRatio = this.width / this.height;
         this.resolution = new THREE.Vector3(this.width, this.height, window.devicePixelRatio);
         this.boxSize = 8.0;
+        this.isScanHorizontalDir = false; 
 
         this.renderer = new THREE.WebGLRenderer({
             preserveDrawingBuffer: true // needed for html2canvas
@@ -34,6 +35,12 @@ class App {
 
         this.renderer.setSize(this.width, this.height);
         document.body.appendChild(this.renderer.domElement);
+
+        // Add camera flip button event
+        let dirBtn = document.getElementById('dir-btn');
+        dirBtn?.addEventListener('click', () => {
+            this.isScanHorizontalDir = !this.isScanHorizontalDir;
+        });
 
         // Add camera flip button event
         let flipBtn = document.getElementById('flip-btn');
@@ -100,6 +107,9 @@ class App {
             },
             isCamFront: {
                 value: this.isCamFront
+            },
+            isHorizontalDir: {
+                value: this.isScanHorizontalDir
             }
         });
 
@@ -184,6 +194,7 @@ class App {
             this.targetA.render(this.bufferA.scene, this.orthoCamera);
 
             this.bufferImage.uniforms['iChannel0'].value = this.targetA.readBuffer.texture;
+            this.bufferImage.uniforms['isHorizontalDir'].value = this.isScanHorizontalDir;
             this.targetC.render(this.bufferImage.scene, this.orthoCamera, true);
 
             this.animate();
