@@ -23,6 +23,7 @@ class App {
         this.height = 720;
         this.aspRatio = this.width / this.height;
         this.resolution = new THREE.Vector3(this.width, this.height, window.devicePixelRatio);
+        this.mag = 1.0; // magnification
 
         this.renderer = new THREE.WebGLRenderer({
             antialias: true,
@@ -41,8 +42,8 @@ class App {
             if (event.buttons === 1) { // left mouse button
                 this.mousePosition.setZ(1);
                 //this.counter = 0;
-                this.mousePosition.setX(event.clientX);
-                this.mousePosition.setY(this.height - event.clientY);
+                this.mousePosition.setX(event.clientX*this.mag);
+                this.mousePosition.setY(this.height*this.mag - event.clientY*this.mag);
             }
         });
         this.renderer.domElement.addEventListener('mouseup', event => {
@@ -52,8 +53,8 @@ class App {
         });
         this.renderer.domElement.addEventListener('mousemove', event => {
             if (event.buttons === 1) {
-                this.mousePosition.setX(event.clientX);
-                this.mousePosition.setY(this.height - event.clientY);
+                this.mousePosition.setX(event.clientX*this.mag);
+                this.mousePosition.setY(this.height*this.mag - event.clientY*this.mag);
             }
         });
 
@@ -61,8 +62,8 @@ class App {
         this.renderer.domElement.addEventListener("touchstart", event => {
             event.preventDefault();
             this.mousePosition.setZ(1);
-            this.mousePosition.setX(event.touches[0].pageX);
-            this.mousePosition.setY(this.height - event.touches[0].pageY);
+            this.mousePosition.setX(event.touches[0].pageX*this.mag);
+            this.mousePosition.setY(this.height*this.mag - event.touches[0].pageY*this.mag);
         });
         this.renderer.domElement.addEventListener("touchend", event => {
             event.preventDefault();
@@ -70,8 +71,8 @@ class App {
         });
         this.renderer.domElement.addEventListener("touchmove", event => {
             event.preventDefault();
-            this.mousePosition.setX(event.touches[0].pageX);
-            this.mousePosition.setY(this.height - event.touches[0].pageY);
+            this.mousePosition.setX(event.touches[0].pageX*this.mag);
+            this.mousePosition.setY(this.height*this.mag - event.touches[0].pageY*this.mag);
         });
 
         // Add liquify reset button event
@@ -225,7 +226,11 @@ class App {
         this.height = window.innerHeight;
         this.aspRatio = this.width / this.height;
 
-        this.resolution.set(this.width, this.height, window.devicePixelRatio);
+        if((this.width + this.height) < 2000){
+            this.mag = 2.0;
+        }
+
+        this.resolution.set(this.width*this.mag, this.height*this.mag, window.devicePixelRatio);
     
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(this.width, this.height);
@@ -238,12 +243,12 @@ class App {
     }
 
     setBufferManagerSize(){
-        this.targetA.readBuffer.setSize(this.width, this.height);
-        this.targetA.writeBuffer.setSize(this.width, this.height);
-        this.targetB.readBuffer.setSize(this.width, this.height);
-        this.targetB.writeBuffer.setSize(this.width, this.height);
-        this.targetC.readBuffer.setSize(this.width, this.height);
-        this.targetC.writeBuffer.setSize(this.width, this.height);
+        this.targetA.readBuffer.setSize(this.width*this.mag, this.height*this.mag);
+        this.targetA.writeBuffer.setSize(this.width*this.mag, this.height*this.mag);
+        this.targetB.readBuffer.setSize(this.width*this.mag, this.height*this.mag);
+        this.targetB.writeBuffer.setSize(this.width*this.mag, this.height*this.mag);
+        this.targetC.readBuffer.setSize(this.width*this.mag, this.height*this.mag);
+        this.targetC.writeBuffer.setSize(this.width*this.mag, this.height*this.mag);
     }
 
     animate() {
