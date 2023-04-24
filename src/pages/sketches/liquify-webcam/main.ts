@@ -168,6 +168,9 @@ class App {
             },
             iChannel1: {
                 value: null
+            },
+            isCamFront: {
+                value: this.isCamFront
             }
         });
 
