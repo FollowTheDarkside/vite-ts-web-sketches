@@ -4,6 +4,7 @@ uniform sampler2D iChannel0;
 //uniform sampler2D iChannel1;
 uniform vec2 iResolution;
 uniform float size;
+uniform bool isCamFront;
 varying vec2 vUv;
 
 vec3 getFrame(vec2 uv, float hd_frame, float n){
@@ -32,6 +33,9 @@ void main()
     
     //vec2 uv = fragCoord/iResolution.xy;
     vec2 uv = vUv;
+    if(isCamFront){
+        uv.x = 1.0 - uv.x;
+    }
 
     float n = size;
     

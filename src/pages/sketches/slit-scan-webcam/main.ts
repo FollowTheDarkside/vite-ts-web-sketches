@@ -98,6 +98,9 @@ class App {
             iChannel0: {
                 value: null
             },
+            isCamFront: {
+                value: this.isCamFront
+            }
         });
 
         this.initWebCam(this.isCamFront, 1280, 720);
