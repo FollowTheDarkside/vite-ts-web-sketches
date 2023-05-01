@@ -11,6 +11,19 @@ import frag1Bilerp from './shader/frag1-bilerp.glsl?raw'
 import frag2PolarRot from './shader/frag2-polar-rot.glsl?raw'
 import frag3Binary from './shader/frag3-binary.glsl?raw'
 import frag4Vnoise from './shader/frag4-vnoise.glsl?raw'
+import frag5Warp from './shader/frag5-warp.glsl?raw'
+import frag6FdistImproved from './shader/frag6-fdistImproved.glsl?raw'
+import frag7Lp from './shader/frag7-lp.glsl?raw'
+import frag8NormalMapping from './shader/frag8-normalMapping.glsl?raw'
+import frag9Raymarching from './shader/frag9-raymarching.glsl?raw'
+import frag10Box from './shader/frag10-box.glsl?raw'
+import frag11BoolOp3d from './shader/frag11-boolOp3d.glsl?raw'
+import frag12BoolOp2d from './shader/frag12-boolOp2d.glsl?raw'
+import frag13Morphing from './shader/frag13-morphing.glsl?raw'
+import frag14SmoothMin from './shader/frag14-smoothMin.glsl?raw'
+import frag15Octahedron from './shader/frag15-octahedron.glsl?raw'
+import frag16Norm from './shader/frag16-norm.glsl?raw'
+import frag17SmoothMin2 from './shader/frag17-smoothMin2.glsl?raw'
 
 let windowW = window.innerWidth;
 let windowH = window.innerHeight;
@@ -19,7 +32,9 @@ let clock, time;
 let renderer:THREE.WebGLRenderer, scene:THREE.Scene, camera:THREE.PerspectiveCamera, mesh:THREE.Mesh;
 let uniforms:any;
 let guiObject:any;
-let fragTitles = [ 'bilerp', 'polarRot', 'binary', 'vnoise' ];
+let fragTitles = [ 'bilerp', 'polarRot', 'binary', 'vnoise', 'warp', 'fdistImproved', 'lp', 'normalMapping', 'raymarching', 'box', 
+                   'boolOp3d', 'boolOp2d', 'morphing', 'smoothMin', 'octahedron', 'norm',
+                   'smoothMin2' ];
 
 window.addEventListener('load', init);
 
@@ -136,6 +151,32 @@ function setShaderMaterial(number){
         fragSource = frag3Binary;
     }else if(number == fragTitles[3]){
         fragSource = frag4Vnoise;
+    }else if(number == fragTitles[4]){
+        fragSource = frag5Warp;
+    }else if(number == fragTitles[5]){
+        fragSource = frag6FdistImproved;
+    }else if(number == fragTitles[6]){
+        fragSource = frag7Lp;
+    }else if(number == fragTitles[7]){
+        fragSource = frag8NormalMapping;
+    }else if(number == fragTitles[8]){
+        fragSource = frag9Raymarching;
+    }else if(number == fragTitles[9]){
+        fragSource = frag10Box;
+    }else if(number == fragTitles[10]){
+        fragSource = frag11BoolOp3d;
+    }else if(number == fragTitles[11]){
+        fragSource = frag12BoolOp2d;
+    }else if(number == fragTitles[12]){
+        fragSource = frag13Morphing;
+    }else if(number == fragTitles[13]){
+        fragSource = frag14SmoothMin;
+    }else if(number == fragTitles[14]){
+        fragSource = frag15Octahedron;
+    }else if(number == fragTitles[15]){
+        fragSource = frag16Norm;
+    }else if(number == fragTitles[16]){
+        fragSource = frag17SmoothMin2;
     }
     
     const newMaterial = new THREE.ShaderMaterial({
