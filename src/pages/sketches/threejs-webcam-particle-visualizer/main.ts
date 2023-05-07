@@ -168,9 +168,11 @@ function getImageData(image){
     canvas.width = w;
     canvas.height = h;
 
-    // // Invert image
-    // ctx.translate(w, 0);
-    // ctx.scale(-1, 1);
+    if(!isCamFront){
+        // Invert image
+        ctx.translate(w, 0);
+        ctx.scale(-1, 1);
+    }
 
     ctx.drawImage(image, 0, 0);
     const imageData = ctx.getImageData(0, 0, w, h);
