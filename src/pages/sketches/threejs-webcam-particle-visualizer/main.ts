@@ -28,11 +28,13 @@ function init(){
     // Create GUI
     const gui = new GUI();
     guiObject = {
+        drawingInv: false,
         size: 5,
         drawingTh: 0.5,
         opacity: 1,
         flip: flipWebCam,
     };
+    gui.add( guiObject, 'drawingInv');
     gui.add( guiObject, 'size', 0, 10 );
     gui.add( guiObject, 'drawingTh', 0, 1 );
     gui.add( guiObject, 'opacity', 0, 1 );
@@ -85,6 +87,7 @@ function tick() {
         particles.material.uniforms.size.value = guiObject.size;
         particles.material.uniforms.drawingThreshold.value = guiObject.drawingTh;
         particles.material.uniforms.opacity.value = guiObject.opacity;
+        particles.material.uniforms.drawingInvert.value = guiObject.drawingInv;
         drawParticles();
     }
 
@@ -235,6 +238,10 @@ function createParticles(){
             opacity: {
                 type: 'f',
                 value: 1.0
+            },
+            drawingInvert: {
+                type: 'b',
+                value: false
             },
         },
         vertexShader: vertexSource,
