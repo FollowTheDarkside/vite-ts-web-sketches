@@ -30,12 +30,14 @@ function init(){
     guiObject = {
         drawingInv: false,
         size: 5,
+        depthZ: 10,
         drawingTh: 0.5,
         opacity: 1,
         flip: flipWebCam,
     };
     gui.add( guiObject, 'drawingInv');
     gui.add( guiObject, 'size', 0, 10 );
+    gui.add( guiObject, 'depthZ', -10, 10 );
     gui.add( guiObject, 'drawingTh', 0, 1 );
     gui.add( guiObject, 'opacity', 0, 1 );
     gui.add( guiObject, 'flip');
@@ -266,7 +268,7 @@ function drawParticles(){
         const b = imageData.data[index+2]/255;
         const gray = (r+g+b) / 3;
 
-        particles.geometry.attributes.position.setZ( i , gray*10);
+        particles.geometry.attributes.position.setZ( i , gray*guiObject.depthZ);
         particles.geometry.attributes.color.setX( i , r);
         particles.geometry.attributes.color.setY( i , g);
         particles.geometry.attributes.color.setZ( i , b);
