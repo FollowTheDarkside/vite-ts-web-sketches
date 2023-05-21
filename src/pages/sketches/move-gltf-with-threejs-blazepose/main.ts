@@ -225,7 +225,7 @@ function loadTexture(){
     const loader = new THREE.TextureLoader();
     loader.load(
         // resource URL
-        '../../../assets/LeePerrySmith/Map-COL.jpg',
+        '/LeePerrySmith/Map-COL.jpg',
         // onLoad callback
         function ( texture ) {
             loadGltfModel(texture);
@@ -244,7 +244,7 @@ function loadGltfModel(texture){
     const loader = new GLTFLoader();
     loader.load(
         // resource URL
-        "../../../assets/LeePerrySmith/LeePerrySmith.glb",
+        "/LeePerrySmith/LeePerrySmith.glb",
         // called when the resource is loaded
         function ( gltf ){
             gltfModel = gltf.scene;
