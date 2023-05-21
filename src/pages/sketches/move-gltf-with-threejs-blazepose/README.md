@@ -16,3 +16,5 @@
 - [tfjs-models/pose-detection](https://github.com/tensorflow/tfjs-models/tree/master/pose-detection) & [demo code: live_video](https://github.com/tensorflow/tfjs-models/blob/master/pose-detection/demos/live_video/index.html)
 - [tfjs-models - BlazePose](https://github.com/tensorflow/tfjs-models/tree/master/pose-detection/src/blazepose_tfjs)
 - [3D-Pose-Estimation-Sample-by-BlazePose-p5js](https://github.com/FollowTheDarkside/3D-Pose-Estimation-Sample-by-BlazePose-p5js)
+- [Vite - 静的アセットの取り扱い](https://ja.vitejs.dev/guide/assets.html)
+  - If I did not put the repository name, which is also specified in the base of vite.config.js, in the path of the resource as shown in the image, I could not refer to the correct path after deployment.
