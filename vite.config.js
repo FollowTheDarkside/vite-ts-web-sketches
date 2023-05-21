@@ -5,6 +5,7 @@ import { defineConfig } from 'vite'
 const root = resolve(__dirname, 'src')
 const outDir = resolve(__dirname, 'dist')
 const pages = resolve(__dirname, 'src', 'pages')
+const publicDir = resolve(__dirname, 'src', 'public')
 
 const sketchesPlg = createPluginToSetPageList("sketches")
 const experimentsPlg = createPluginToSetPageList("experiments")
@@ -51,6 +52,7 @@ function createPluginToSetPageList(dirName){
 export default defineConfig({
 	root,
 	base: '/vite-ts-web-sketches/', 
+	publicDir: publicDir,
 	build: {
 		outDir,
 		rollupOptions: {
