@@ -50,7 +50,7 @@ function createPluginToSetPageList(dirName){
 // Vite config
 export default defineConfig({
 	root,
-	base: 'vite-ts-web-sketches', 
+	base: '/vite-ts-web-sketches/', 
 	build: {
 		outDir,
 		rollupOptions: {
