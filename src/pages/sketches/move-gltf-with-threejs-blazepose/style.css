@@ -1,0 +1,24 @@
+html,
+body {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+#loading-text{
+	position: fixed;
+	z-index: 999;
+	top: 480px;
+    left: 0px;
+	opacity: 1.0;
+}
+#loading-text.transparent{
+    opacity: 0.0;
+}
+#video-sec {
+	position: fixed;
+	z-index: -1;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
