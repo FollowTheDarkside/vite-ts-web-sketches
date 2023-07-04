@@ -1,7 +1,7 @@
 // @ts-nocheck
 import './style.css'
 // @ts-ignore
-import * as THREE from 'https://cdn.skypack.dev/three';
+import * as THREE from 'https://unpkg.com/three@0.154.0/build/three.module.js';
 // @ts-ignore
 import GUI from 'https://cdn.jsdelivr.net/npm/lil-gui@0.18/+esm';
 

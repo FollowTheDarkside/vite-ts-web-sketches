@@ -2,7 +2,7 @@
 
 import './style.css'
 // @ts-ignore
-import * as THREE from 'https://cdn.skypack.dev/three';
+import * as THREE from 'https://unpkg.com/three@0.154.0/build/three.module.js';
 import { map } from './utils/map'
 import { convertSizeTo3dView } from './utils/size-converter'
 import { getDistance2d } from './utils/distance';
