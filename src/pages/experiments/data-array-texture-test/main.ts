@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import './style.css'
-import * as THREE from 'https://cdn.skypack.dev/three';
+import * as THREE from 'https://unpkg.com/three@0.154.0/build/three.module.js';
 
 import vertexSource from './shader/vertex.glsl?raw'
 import fragmentSource from './shader/fragment.glsl?raw'

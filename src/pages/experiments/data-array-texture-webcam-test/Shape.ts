@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import * as THREE from 'https://cdn.skypack.dev/three';
+import * as THREE from 'https://unpkg.com/three@0.154.0/build/three.module.js';
 import Common from "./Common";
 
 import vertexSource from './shader/vertex.glsl?raw'
