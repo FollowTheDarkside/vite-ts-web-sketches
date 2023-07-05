@@ -1,0 +1,21 @@
+html,
+body {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	user-select: none;
+	-webkit-user-select: none;
+}
+#loading-text{ /* centered in window */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	opacity: 1.0;
+	transition: .3s ease-out;
+}
+#loading-text.transparent{
+    opacity: 0.0;
+}
