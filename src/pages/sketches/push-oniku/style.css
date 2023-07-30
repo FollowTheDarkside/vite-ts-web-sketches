@@ -1,0 +1,17 @@
+html,
+body {
+	background: rgba(10, 10, 10, 1.0);
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	user-select: none;
+	-webkit-user-select: none;
+}
+#video-sec {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	overflow: hidden;
+}
