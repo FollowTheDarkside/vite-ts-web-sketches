@@ -13,11 +13,23 @@ function init(){
     // Create video element
     videoElement = document.createElement('video');
     videoElement.id = 'onikuVideo';
-    videoElement.muted = true;
-    videoElement.playsInline = true;
+    //videoElement.setAttribute("muted", "");
+    videoElement.setAttribute("autoplay", "");
+    videoElement.setAttribute("playsinline", "");
+    //videoElement.setAttribute("webkit-playsinline", "");
     videoElement.controls = false;
     videoElement.oncontextmenu = function(){ // Disable right-click to prevent video control
         return false;
+    }
+
+    /*
+    NOTE: 
+    For PC, the video will automatically play unless the autoplay attribute is disabled.
+    For iOS, the video will not be displayed without the autoplay attribute. However, since the muted attribute is not set, the video can be displayed but not automatically played.
+    These logics are not smart, but I couldn't think of a better way to do it when verifying the operation.
+    */
+    if (!navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+        videoElement.autoplay = false;
     }
 
     // Set css
@@ -37,6 +49,7 @@ function init(){
     videoContainer.appendChild(videoElement);
 
     // videoElement.play();
+    // videoElement.pause();
 
     // Set interaction
     videoContainer.addEventListener("mousedown", e => {
