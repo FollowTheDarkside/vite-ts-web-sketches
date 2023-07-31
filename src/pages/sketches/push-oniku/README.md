@@ -6,3 +6,5 @@ The meat video was created using images from [this website](http://www.tenandopr
 - [HTMLMediaElement.currentTime](https://developer.mozilla.org/ja/docs/Web/API/HTMLMediaElement/currentTime)
 - [videoタグを縦横比は維持しながら全画面表示したい](https://migi.me/css/video-keep-aspect-fullscreen/)
 - [Webページに動画を埋め込むHTMLのvideo要素の最適な使い方](https://blanche-toile.com/web/html-video)
+- [video: 動画埋め込み要素](https://developer.mozilla.org/ja/docs/Web/HTML/Element/video)
+- [【HTML5】iOSのSafariでvideoタグ埋め込みのmp4が再生できないのはインターレースだから](https://deep-space.blue/web/822)
