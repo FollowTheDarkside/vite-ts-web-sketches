@@ -8,6 +8,20 @@ body {
 	user-select: none;
 	-webkit-user-select: none;
 }
+#title-text{
+	color: rgba(10, 10, 10, 1.0);
+	text-shadow: rgba(10, 10, 10, 0.75) 1px 1px 5px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	opacity: 1.0;
+	transition: .3s ease-out;
+}
+#title-text.transparent{
+    opacity: 0.0;
+}
 #video-sec {
 	display: flex;
 	justify-content: center;

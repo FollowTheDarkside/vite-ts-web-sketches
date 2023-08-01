@@ -6,6 +6,7 @@ let videoElement;
 let videoTime = 0;
 let timerID = 0;
 let isMouseDowned = false;
+let firstMouseDowned = false;
 
 window.addEventListener('load', init);
 
@@ -54,16 +55,12 @@ function init(){
     // Set interaction
     videoContainer.addEventListener("mousedown", e => {
         isMouseDowned = true;
-
-        clearInterval(timerID);
-        timerID = setInterval(setPlaybackPosition, 100);
+        initOnikuInteraction();
     }, { passive: true });
     videoContainer.addEventListener("touchstart", e => {
         e.preventDefault();
         isMouseDowned = true;
-
-        clearInterval(timerID);
-        timerID = setInterval(setPlaybackPosition, 100);
+        initOnikuInteraction();
     }, { passive: true });
 
     videoContainer.addEventListener("mouseup", e => {
@@ -73,6 +70,16 @@ function init(){
         e.preventDefault();
         isMouseDowned = false;
     }, { passive: true });
+}
+
+function initOnikuInteraction(){
+    if(!firstMouseDowned){
+        firstMouseDowned = true;
+        eraseTitleText();
+    }
+
+    clearInterval(timerID);
+    timerID = setInterval(setPlaybackPosition, 100);
 }
 
 function setPlaybackPosition(){
@@ -86,3 +93,8 @@ function setPlaybackPosition(){
     }
     videoElement.currentTime = videoTime;
 };
+
+function eraseTitleText(){
+    let titleText = document.getElementById('title-text');
+    titleText.classList.toggle("transparent");
+}
