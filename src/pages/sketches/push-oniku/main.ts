@@ -38,7 +38,6 @@ function init(){
     videoElement.style.maxHeight = "100%";
     videoElement.style.objectFit = "contain"; // Fit in a container while maintaining the aspect ratio
     videoElement.style.display = "block";
-    videoElement.style.cursor = "pointer";
 
     // Set url of video file
     const sourceElement = document.createElement('source');
