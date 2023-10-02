@@ -135,17 +135,22 @@ function initVideo(id){
 
     videoElement.addEventListener("loadedmetadata", () => {
         videoElement.currentTime = videoElement.duration/2;
+
+        // videoElement.play();
+        // videoElement.pause();
+
+        if(id==1){
+            videoElement1 = videoElement
+            //videoElement1 = videoElement.cloneNode(true);
+            const videoContainer = document.getElementById('video-sec1');
+            videoContainer.appendChild(videoElement1);
+        }else if(id==2){
+            videoElement2 = videoElement
+            //videoElement2 = videoElement.cloneNode(true);
+            const videoContainer = document.getElementById('video-sec2');
+            videoContainer.appendChild(videoElement2);
+        }
     });
-    
-    if(id==1){
-        videoElement1 = videoElement
-        const videoContainer = document.getElementById('video-sec1');
-        videoContainer.appendChild(videoElement1);
-    }else if(id==2){
-        videoElement2 = videoElement
-        const videoContainer = document.getElementById('video-sec2');
-        videoContainer.appendChild(videoElement2);
-    }
 }
 
 function swapZindex(side){
