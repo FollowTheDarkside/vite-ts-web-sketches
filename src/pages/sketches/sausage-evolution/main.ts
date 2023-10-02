@@ -29,6 +29,7 @@ function init(){
         if (e.buttons === 1) {
             isMouseDowned = true;
             if(selectedSide != "left"){
+                console.log("mousedown-L")
                 initInteraction("left");
             }
             selectedSide = "left"
@@ -38,6 +39,7 @@ function init(){
         e.preventDefault();
         isMouseDowned = true;
         if(selectedSide != "left"){
+            console.log("touchstart-L")
             initInteraction("left");
         }
         selectedSide = "left"
@@ -49,6 +51,7 @@ function init(){
         if (e.buttons === 1) {
             isMouseDowned = true;
             if(selectedSide != "right"){
+                console.log("mousedown-R")
                 initInteraction("right");
             }
             selectedSide = "right";
@@ -58,6 +61,7 @@ function init(){
         e.preventDefault();
         isMouseDowned = true;
         if(selectedSide != "right"){
+            console.log("touchstart-R")
             initInteraction("right");
         }
         selectedSide = "right";
@@ -80,7 +84,6 @@ function initInteraction(side){
             swapZindex(side)
         });
     }else if(side == "right"){
-        console.log("rrrr")
         //videoElement.playbackRate = 1.0;
         //videoElement.src = '/vite-ts-web-sketches/video/sausage2.mp4';
         
