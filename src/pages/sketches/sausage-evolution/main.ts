@@ -104,7 +104,7 @@ function initVideo(id){
     // Create video element
     let videoElement = document.createElement('video');
     videoElement.id = 'sausageVideo' + String(id);
-    //videoElement.setAttribute("muted", "");
+    videoElement.setAttribute("muted", "");
     videoElement.setAttribute("autoplay", "");
     videoElement.setAttribute("playsinline", "");
     //videoElement.setAttribute("webkit-playsinline", "");
@@ -140,7 +140,7 @@ function initVideo(id){
         videoElement.currentTime = videoElement.duration/2;
 
         // videoElement.play();
-        // videoElement.pause();
+        videoElement.pause();
 
         if(id==1){
             videoElement1 = videoElement
