@@ -37,6 +37,8 @@ let yourPosZ = 2.5;
 
 let spiderPlane:THREE.Mesh;
 let spiderPosTarget:THREE.Vector3;
+let spiderScaleMax:THREE.Vector3;
+let spiderScaleMin:THREE.Vector3;
 
 window.addEventListener('load', init);
 
@@ -133,6 +135,13 @@ function tick() {
     }
     circle.scale.setScalar(circleScale);
     circle.position.set(mouseDispX, mouseDispY, yourPosZ);
+
+    // When a spider gets close to a mouse, it gets bigger.
+    if(circle.position.distanceTo(spiderPlane.position) < 2.0){
+        spiderPlane.scale.lerp(spiderScaleMax, 0.05);
+    }else{
+        spiderPlane.scale.lerp(spiderScaleMin, 0.1);
+    }
 
     // Rendering
     renderer.render(scene, camera);
@@ -243,6 +252,8 @@ function initSpider(){
             });
             spiderPlane = new THREE.Mesh(geometry, material);
             spiderPlane.position.x = -sizeOnOrigin.widthOnOrigin*1/3;
+            spiderScaleMax = new THREE.Vector3(2, 2, 2);
+            spiderScaleMin = new THREE.Vector3(1, 1, 1);
             scene.add(spiderPlane);
 
             spiderPosTarget = new THREE.Vector3(0, 0, yourPosZ);
